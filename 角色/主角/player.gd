@@ -27,6 +27,12 @@ var cameraShakeNoise: FastNoiseLite
 # 右上角,梦核水晶飘向UI的位置
 var target_position = Vector2(364, -1970)
 
+@export var player:CharacterBody2D
+# 技能1 依次为绑定预制体盾，是否可用技能，cd时间
+var skill_scene = preload("res://角色/主角/技能/skill_1.tscn")
+var skill_1_is_usable:bool = true
+var skill_1_time_cd:float = 10
+
 
 func _ready():
 	#print(str(global_position))
@@ -36,7 +42,7 @@ func _ready():
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 #func _ready() -> void:
-	#canvas_layer.hide()
+	#canvas_layer.hide()a
 
 func _physics_process(delta: float) -> void:
 	var depth = global_position.y
@@ -48,8 +54,29 @@ func _physics_process(delta: float) -> void:
 		# 方向小于0（即-1），翻转
 		direction = Direction.RIGHT if movement < 0 else Direction.LEFT
 		
+	if Input.is_action_just_pressed("技能1") and skill_1_is_usable: #技能1
+		skill_1()
+		
 	move_and_slide()
 
+func skill_1():
+	print("使用了技能1")
+	var shield = skill_scene.instantiate()          #实例化盾
+	shield.position = Vector2(0,0)                  #绑定角色位置后添加
+	player.add_child(shield)
+	
+	skill_1_is_usable = false                       #不可再使用技能
+	
+	var skill_1_timer = Timer.new()                 #添加一个计时器作为cd，结束后设置技能位可用
+	player.add_child(skill_1_timer)
+	skill_1_timer.one_shot = true
+	skill_1_timer.wait_time = skill_1_time_cd
+	skill_1_timer.timeout.connect(skill_timeout)
+	skill_1_timer.start()
+func skill_timeout():
+	print("技能1可以使用")
+	skill_1_is_usable = true
+	
 func startCameraShake(intensity:float):
 	# 屏幕震动噪声乘以强度，改变最后的参数intensity即可改变震动大小
 	var cameraOffset=cameraShakeNoise.get_noise_1d(Time.get_ticks_msec()) * intensity
@@ -72,7 +99,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		# 屏幕震动强度从5逐渐降至1
 		camera_tween.tween_method(startCameraShake,5.0,1.0,0.5)
 		
-		emit_signal("hurt")
+		#寻找护盾是否存在，存在则销毁护盾，不存在则扣血
+		var skill_is_exisx = player.get_node("Skill1") 
+		if skill_is_exisx:
+			print("yes")
+			player.remove_child(skill_is_exisx)
+		else:
+			emit_signal("hurt")
 		
 # 碰到梦核水晶，则给ui的crystal脚本发送得到梦核的信号
 func _on_area_2d_area_entered(area: Area2D) -> void:
