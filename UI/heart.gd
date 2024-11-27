@@ -1,13 +1,14 @@
 extends HBoxContainer
 
-var heart=preload("res://素材/heart.png")
-var empty_heart=preload("res://素材/empty_heart.png")
+var heart=preload("res://素材/美术/heart.png")
+var empty_heart=preload("res://素材/美术/empty_heart.png")
 # 两种血量显示方式
 enum TYPES {type1,type2}
 @export var type := TYPES.type1
 
+# 最大血量
+var max_heart:int=3
 # 当前血量
-var max_heart:int=5
 var current_heart:int
 
 func _ready():
@@ -50,6 +51,5 @@ func _on_player_hurt() -> void:
 		# 血量小于等于0时重新加载场景
 		get_tree().reload_current_scene()
 	else:
-		
 		current_heart -= 1
 		update_heart(current_heart)

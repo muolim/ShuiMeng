@@ -31,6 +31,7 @@ window/stretch/mode="canvas_items"
 
 player="玩家"
 barrier="障碍物，碰到会扣血"
+crystal="梦核水晶"
 
 [input]
 

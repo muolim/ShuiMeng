@@ -21,6 +21,10 @@ extends StaticBody2D
 # 当前速度
 var velocity = initial_velocity
 
+func _ready() -> void:
+	#print(str(global_position))
+	pass
+
 # 每一帧的更新
 func _physics_process(delta: float) -> void:
 	# 更新速度

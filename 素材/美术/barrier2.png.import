@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uviy2a7n3j81"
-path="res://.godot/imported/heart.png-c409e1f8b3f0de6e393fbd60b3220865.ctex"
+uid="uid://0bx1xkcvly72"
+path="res://.godot/imported/barrier2.png-5d701c1266ccba2b2468195c38717ec5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/heart.png"
-dest_files=["res://.godot/imported/heart.png-c409e1f8b3f0de6e393fbd60b3220865.ctex"]
+source_file="res://素材/美术/barrier2.png"
+dest_files=["res://.godot/imported/barrier2.png-5d701c1266ccba2b2468195c38717ec5.ctex"]
 
 [params]
 

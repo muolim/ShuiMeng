@@ -6,16 +6,18 @@ extends Node2D  # 假设容器是一个 Node2D 节点
 var obstacle_scenes : Array  # 存储不同的障碍物预制体
 var obstacle_distance = 200  # 障碍物生成的垂直距离 (像素)
 var obstacle_range = 150  # 障碍物生成的水平位置范围 (像素)
-var obstacle_x_min = -200  # 障碍物生成的x轴最小值
-var obstacle_x_max = 200   # 障碍物生成的x轴最大值
+var obstacle_x_min = 50  # 障碍物生成的x轴最小值
+var obstacle_x_max = 330   # 障碍物生成的x轴最大值
 
 # 墙壁位置
 var left_wall_x = 48  # 左侧墙壁的 x 坐标
 var right_wall_x = 336  # 右侧墙壁的 x 坐标
 
+# 指定生成障碍物的高度（即垂直位置）
+var obstacle_height = 300  # 障碍物生成的固定高度
 
 # 障碍物生成间隔控制
-var time_between_obstacles = 1  # 障碍物生成的时间间隔 (秒)
+var time_between_obstacles = randf_range(0.5, 1.5) # 障碍物生成的时间间隔 (秒)
 var obstacle_timer = 0.0  # 计时器
 # 障碍物与玩家的最小距离，超过该距离时障碍物会被删除
 var obstacle_lifetime_distance = 800  # 障碍物超出此距离后自动删除 (像素)
@@ -28,7 +30,7 @@ func _ready():
 
 	# 你可以根据需要添加更多障碍物预制体
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	# 计时器控制障碍物生成
 	obstacle_timer -= delta
 	if obstacle_timer <= 0:
@@ -40,20 +42,19 @@ func _process(delta):
 
 # 随机生成障碍物
 func generate_obstacle():
-	# 玩家下方一定距离的位置
-	var spawn_position = player.position + Vector2(0, obstacle_distance)
+	# 使用指定的固定高度生成障碍物
+	var spawn_position = Vector2(0, obstacle_height)
 	
 	# 随机选择障碍物的水平位置
 	var random_offset = randf_range(obstacle_x_min, obstacle_x_max)
 	#spawn_position.x += random_offset
 
-	
 	# 随机选择一个障碍物场景
 	var random_obstacle_scene = obstacle_scenes[randi() % obstacle_scenes.size()]
 	# 实例化障碍物
 	var obstacle_instance = random_obstacle_scene.instantiate() 
 	
-# 获取障碍物的宽度，避免与墙壁重叠
+	# 获取障碍物的宽度，避免与墙壁重叠
 	var obstacle_width = 0
 	var sprite = obstacle_instance.get_node("Sprite2D")  # 如果使用了 Sprite
 	if sprite:

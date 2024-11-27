@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=4 uid="uid://mgjdrvvswd8"]
+[gd_scene load_steps=14 format=4 uid="uid://mgjdrvvswd8"]
 
-[ext_resource type="Texture2D" uid="uid://dkvjk1sfucsqx" path="res://素材/1x1方块.png" id="1_1sjgt"]
-[ext_resource type="Texture2D" uid="uid://d3owqn7itmw0e" path="res://素材/background.png" id="1_qnmyr"]
+[ext_resource type="Texture2D" uid="uid://dkvjk1sfucsqx" path="res://素材/美术/1x1方块.png" id="1_1sjgt"]
+[ext_resource type="Texture2D" uid="uid://d3owqn7itmw0e" path="res://素材/美术/background.png" id="1_qnmyr"]
 [ext_resource type="PackedScene" uid="uid://cpfa024ajmuel" path="res://角色/主角/player.tscn" id="2_667dx"]
 [ext_resource type="Script" path="res://场景/地图/tile_map_layer.gd" id="2_e1r42"]
 [ext_resource type="PackedScene" uid="uid://bj4nmpvigoa32" path="res://UI/heart.tscn" id="5_o465f"]
 [ext_resource type="Script" path="res://场景/障碍物/barrie_container.gd" id="6_70sob"]
+[ext_resource type="Script" path="res://场景/梦核/crystal_container.gd" id="6_tffci"]
+[ext_resource type="PackedScene" uid="uid://cv2qthjrqc56n" path="res://UI/crystal.tscn" id="8_2q0k8"]
+[ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="9_0cbgd"]
+[ext_resource type="Script" path="res://UI/height.gd" id="10_o3s1s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pefpl"]
 texture = ExtResource("1_1sjgt")
@@ -63,6 +67,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_pefpl")
 
+[sub_resource type="LabelSettings" id="LabelSettings_qtffx"]
+font = ExtResource("9_0cbgd")
+
 [node name="World" type="Node2D"]
 position = Vector2(0, -2000)
 
@@ -97,9 +104,33 @@ limit_right = 384
 [node name="BarrieContainer" type="Node2D" parent="."]
 script = ExtResource("6_70sob")
 
+[node name="CrystalContainer" type="Node2D" parent="."]
+script = ExtResource("6_tffci")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Heart" parent="CanvasLayer" instance=ExtResource("5_o465f")]
 offset_right = 216.0
 
+[node name="Crystal" parent="CanvasLayer" instance=ExtResource("8_2q0k8")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_right = 0.0
+grow_horizontal = 0
+
+[node name="Height" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "高度："
+label_settings = SubResource("LabelSettings_qtffx")
+script = ExtResource("10_o3s1s")
+
+[connection signal="get_crystal" from="Player" to="CanvasLayer/Crystal" method="_on_player_get_crystal"]
 [connection signal="hurt" from="Player" to="CanvasLayer/Heart" method="_on_player_hurt"]

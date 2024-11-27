@@ -9,6 +9,7 @@ enum Direction {
 }
 
 signal hurt
+signal get_crystal
 
 @export var direction:=Direction.RIGHT:
 	set(v):
@@ -23,7 +24,12 @@ signal hurt
 @export var camera2D : Camera2D
 var cameraShakeNoise: FastNoiseLite
 
+# 右上角,梦核水晶飘向UI的位置
+var target_position = Vector2(364, -1970)
+
+
 func _ready():
+	#print(str(global_position))
 	cameraShakeNoise=FastNoiseLite.new()
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -67,3 +73,23 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		camera_tween.tween_method(startCameraShake,5.0,1.0,0.5)
 		
 		emit_signal("hurt")
+		
+# 碰到梦核水晶，则给ui的crystal脚本发送得到梦核的信号
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("碰到了")
+	if area.is_in_group("crystal"):
+		print("梦核水晶")
+		
+		# 创建一个Tween节点来控制水晶飘向UI的动画
+		var tween = get_tree().create_tween()
+		# 获取收集品的位置
+		var start_position = area.global_position
+		# 将收集品移动到右上角UI位置
+		tween.tween_property(area, "global_position", target_position, 0.5)
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_LINEAR)
+		# 释放水晶节点
+		tween.tween_callback(area.queue_free)
+		
+		# 发出玩家已经得到梦核水晶的信号，接收者是ui的crystal脚本
+		emit_signal("get_crystal")

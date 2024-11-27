@@ -1,7 +1,7 @@
-extends TileMapLayer
+extends Area2D
 
 # 初速度 (米/秒)
-@export var initial_velocity = Vector2(0, -20)  # 向上的初速度，负值表示向上
+@export var initial_velocity = Vector2(0, -100)  # 向上的初速度，负值表示向上
 
 # 加速度 (米/秒²)
 @export var acceleration = Vector2(0, -1)  # 向上的加速度，负值表示向上
@@ -9,8 +9,9 @@ extends TileMapLayer
 # 当前速度
 var velocity = initial_velocity
 
-func _ready():
-	print(str(global_position))
+func _ready() -> void:
+	#print(str(global_position))
+	pass
 
 # 每一帧的更新
 func _physics_process(delta: float) -> void:

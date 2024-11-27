@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj4nmpvigoa32"]
 
 [ext_resource type="Script" path="res://UI/heart.gd" id="1_b15om"]
-[ext_resource type="Texture2D" uid="uid://uviy2a7n3j81" path="res://素材/heart.png" id="2_64wtw"]
+[ext_resource type="Texture2D" uid="uid://uviy2a7n3j81" path="res://素材/美术/heart.png" id="2_64wtw"]
 
 [node name="Heart" type="HBoxContainer"]
 offset_right = 40.0
