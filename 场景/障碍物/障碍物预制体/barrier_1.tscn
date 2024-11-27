@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpf6nk0jy5c73"]
+
+[ext_resource type="PackedScene" uid="uid://4l6wg5ucb1lx" path="res://场景/障碍物/barrier.tscn" id="1_6ctdy"]
+[ext_resource type="Texture2D" uid="uid://bx824sfkw60y" path="res://素材/barrier.png" id="2_4s056"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5at5d"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1wni"]
+size = Vector2(16, 16)
+
+[node name="Barrier1" instance=ExtResource("1_6ctdy")]
+position = Vector2(8, 8)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_4s056")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_5at5d")
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_k1wni")

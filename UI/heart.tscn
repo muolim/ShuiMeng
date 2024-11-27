@@ -7,6 +7,7 @@
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_b15om")
+type = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

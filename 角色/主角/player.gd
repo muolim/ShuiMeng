@@ -8,6 +8,8 @@ enum Direction {
 	RIGHT = +1
 }
 
+signal hurt
+
 @export var direction:=Direction.RIGHT:
 	set(v):
 		direction = v
@@ -41,9 +43,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("碰到了")
 	if body.is_in_group("barrier"):
 		print("障碍物")
-		#if 0 >= main.current_heart - 1:
-			## 血量小于等于0时重新加载场景
-			#get_tree().reload_current_scene()
-		#else:
-			#main.current_heart -= 1
-			#main.update_heart_num()
+		emit_signal("hurt")
