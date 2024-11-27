@@ -84,8 +84,9 @@ tile_map_data = PackedByteArray("AAD9//7/AAAAAAIAAAD9////AAAAAAIAAAD9/wAAAAAAAAI
 tile_set = SubResource("TileSet_2vspr")
 script = ExtResource("2_e1r42")
 
-[node name="Player" parent="." instance=ExtResource("2_667dx")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera2D") instance=ExtResource("2_667dx")]
 position = Vector2(180, 90)
+camera2D = NodePath("../Camera2D")
 
 [node name="Heart" parent="." instance=ExtResource("5_o465f")]
 offset_right = 216.0

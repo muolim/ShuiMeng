@@ -7,8 +7,8 @@ enum TYPES {type1,type2}
 @export var type := TYPES.type1
 
 # 当前血量
-static var max_heart:int=3
-static var current_heart:int
+var max_heart:int=5
+var current_heart:int
 
 func _ready():
 	# 初始化血量为最大血量
@@ -50,5 +50,6 @@ func _on_player_hurt() -> void:
 		# 血量小于等于0时重新加载场景
 		get_tree().reload_current_scene()
 	else:
+		
 		current_heart -= 1
 		update_heart(current_heart)

@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpfa024ajmuel"]
+[gd_scene load_steps=7 format=3 uid="uid://cpfa024ajmuel"]
 
 [ext_resource type="Script" path="res://角色/主角/player.gd" id="1_5w5f1"]
 [ext_resource type="Texture2D" uid="uid://cmudtvhoqcrgk" path="res://素材/小V下落.png" id="2_mr2es"]
+[ext_resource type="Shader" path="res://角色/主角/shader/blink.gdshader" id="2_qlfbg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qa7sy"]
+shader = ExtResource("2_qlfbg")
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_intensity = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ljxxy"]
 size = Vector2(11.25, 23.5)
@@ -13,6 +19,7 @@ size = Vector2(9, 23)
 script = ExtResource("1_5w5f1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qa7sy")
 texture = ExtResource("2_mr2es")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

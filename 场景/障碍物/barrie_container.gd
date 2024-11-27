@@ -4,7 +4,7 @@ extends Node2D  # 假设容器是一个 Node2D 节点
 
 # 障碍物场景数组
 var obstacle_scenes : Array  # 存储不同的障碍物预制体
-var obstacle_distance = 300  # 障碍物生成的垂直距离 (像素)
+var obstacle_distance = 200  # 障碍物生成的垂直距离 (像素)
 var obstacle_range = 150  # 障碍物生成的水平位置范围 (像素)
 var obstacle_x_min = -200  # 障碍物生成的x轴最小值
 var obstacle_x_max = 200   # 障碍物生成的x轴最大值
