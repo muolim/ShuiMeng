@@ -17,7 +17,7 @@ signal hurt
 			await ready
 		sprite_2d.scale.x=direction
 		
-@export var XSPEED : float = 200.0
+@export var XSPEED : float = 100.0
 @export var YSPEED : float = 0.0
 
 @export var camera2D : Camera2D

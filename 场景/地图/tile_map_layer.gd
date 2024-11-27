@@ -1,7 +1,7 @@
 extends TileMapLayer
 
 # 初速度 (米/秒)
-@export var initial_velocity = Vector2(0, -10)  # 向上的初速度，负值表示向上
+@export var initial_velocity = Vector2(0, -20)  # 向上的初速度，负值表示向上
 
 # 加速度 (米/秒²)
 @export var acceleration = Vector2(0, -1)  # 向上的加速度，负值表示向上

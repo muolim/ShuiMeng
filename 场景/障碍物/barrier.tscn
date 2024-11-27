@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://场景/障碍物/barrier.gd" id="1_7wa0j"]
 
-[node name="Barrier" type="CharacterBody2D" groups=["barrier"]]
+[node name="Barrier" type="StaticBody2D" groups=["barrier"]]
 script = ExtResource("1_7wa0j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
