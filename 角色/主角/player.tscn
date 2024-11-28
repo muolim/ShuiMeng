@@ -15,8 +15,9 @@ size = Vector2(11.25, 23.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0tnf"]
 size = Vector2(9, 23)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player") groups=["player"]]
 script = ExtResource("1_5w5f1")
+player = NodePath(".")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_qa7sy")
