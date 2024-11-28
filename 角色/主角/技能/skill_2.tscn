@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0py4pxhhqu3u"]
+
+[ext_resource type="Script" path="res://角色/主角/技能/skill_2.gd" id="1_p8sfi"]
+[ext_resource type="Texture2D" uid="uid://b4xm5pn2qrkyo" path="res://icon.svg" id="2_hsmce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2p3e"]
+size = Vector2(12, 12)
+
+[node name="Node2D" type="Node2D" groups=["item"]]
+script = ExtResource("1_p8sfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_hsmce")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_d2p3e")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_item_body_entered"]
