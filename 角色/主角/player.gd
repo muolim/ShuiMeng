@@ -29,9 +29,14 @@ var target_position = Vector2(364, -1970)
 
 @export var player:CharacterBody2D
 # 技能1 依次为绑定预制体盾，是否可用技能，cd时间
-var skill_scene = preload("res://角色/主角/技能/skill_1.tscn")
+var skill_scene_1 = preload("res://角色/主角/技能/skill_1.tscn")
 var skill_1_is_usable:bool = true
 var skill_1_time_cd:float = 10
+
+# 技能2 依次为绑定预制体雷，是否可用技能，cd时间
+var skill_scene_2 = preload("res://角色/主角/技能/skill_2.tscn")
+var skill_2_is_usable:bool = true
+var skill_2_time_cd:float = 5
 
 
 func _ready():
@@ -56,12 +61,34 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("技能1") and skill_1_is_usable: #技能1
 		skill_1()
+	
+	if Input.is_action_just_pressed("技能2") and skill_2_is_usable:
+		skill_2()
+		pass
 		
 	move_and_slide()
 
+func skill_2():
+	print("使用了技能2")
+	var grenade =  skill_scene_2.instantiate()
+	grenade.position = Vector2(0,0)
+	player.add_child(grenade)
+	
+	skill_2_is_usable = false
+	
+	var skill_2_timer = Timer.new()                 #添加一个计时器作为cd，结束后设置技能位可用
+	player.add_child(skill_2_timer)
+	skill_2_timer.one_shot = true
+	skill_2_timer.wait_time = skill_2_time_cd
+	skill_2_timer.timeout.connect(skill_2_timeout)
+	skill_2_timer.start()
+func skill_2_timeout():
+	print("技能2可以使用")
+	skill_2_is_usable = true
+
 func skill_1():
 	print("使用了技能1")
-	var shield = skill_scene.instantiate()          #实例化盾
+	var shield = skill_scene_1.instantiate()          #实例化盾
 	shield.position = Vector2(0,0)                  #绑定角色位置后添加
 	player.add_child(shield)
 	
@@ -71,9 +98,9 @@ func skill_1():
 	player.add_child(skill_1_timer)
 	skill_1_timer.one_shot = true
 	skill_1_timer.wait_time = skill_1_time_cd
-	skill_1_timer.timeout.connect(skill_timeout)
+	skill_1_timer.timeout.connect(skill_1_timeout)
 	skill_1_timer.start()
-func skill_timeout():
+func skill_1_timeout():
 	print("技能1可以使用")
 	skill_1_is_usable = true
 	
@@ -93,18 +120,19 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 		var blink_tween:Tween = get_tree().create_tween()
 		# 角色闪烁从1逐渐降至0
-		blink_tween.tween_method(setShader_BlinkIntensity,1.0,0.0,0.2)
-		
 		var camera_tween:Tween = get_tree().create_tween()
 		# 屏幕震动强度从5逐渐降至1
-		camera_tween.tween_method(startCameraShake,5.0,1.0,0.5)
 		
 		#寻找护盾是否存在，存在则销毁护盾，不存在则扣血
 		var skill_is_exisx = player.get_node("Skill1") 
 		if skill_is_exisx:
+			blink_tween.tween_method(setShader_BlinkIntensity,1.0,0.0,1)
+			camera_tween.tween_method(startCameraShake,5.0,1.0,0.5)
 			print("yes")
 			player.remove_child(skill_is_exisx)
 		else:
+			blink_tween.tween_method(setShader_BlinkIntensity,1.0,0.0,0.2)
+			camera_tween.tween_method(startCameraShake,5.0,1.0,0.5)
 			emit_signal("hurt")
 		
 # 碰到梦核水晶，则给ui的crystal脚本发送得到梦核的信号
