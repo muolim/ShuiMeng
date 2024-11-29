@@ -38,10 +38,22 @@ var skill_scene_2 = preload("res://角色/主角/技能/skill_2.tscn")
 var skill_2_is_usable:bool = true
 var skill_2_time_cd:float = 5
 
+# 技能3 
+var skill_3_is_using = false                                # 技能3是否在使用
+var skill_3_last_fall_position_y                            # 存储使用技能3后要返回y轴的位置
+var skill_3_mouse_position:Vector2                          # 鼠标位置
+var skill_3_x_fall_speed = 30 * XSPEED                      # 初始左右移动速度
+var skill_3_y_fall_speed = -15                              # 初始向下移动速度
+var skill_3_y_back_speed = -10                              # 初始返回速度
+var mouse_position_x = get_global_mouse_position().x        # 初始化鼠标位置的x轴
+var is_go_back = false                                      # 判断是否处于返回阶段
+var skill_3_is_usable:bool = true                           # 技能3是否可用
+var skill_3_time_cd:float = 1                               # 技能3cd时间
 
 func _ready():
 	#print(str(global_position))
 	cameraShakeNoise=FastNoiseLite.new()
+	skill_3_last_fall_position_y = player.position.y        # 初始化存储位置为当前位置
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -51,22 +63,60 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	var depth = global_position.y
-	var movement:=Input.get_axis("向左","向右")
-	velocity.x = move_toward(velocity.x, movement * XSPEED, 100)
-	velocity.y = YSPEED
-		
-	if not is_zero_approx(movement):
-		# 方向小于0（即-1），翻转
-		direction = Direction.RIGHT if movement < 0 else Direction.LEFT
-		
+	
+	# 更改能进行左右移动条件，必须没有使用技能3 且 不处于技能3的返回状态
+	if !skill_3_is_using and !is_go_back:
+		move()
 	if Input.is_action_just_pressed("技能1") and skill_1_is_usable: #技能1
 		skill_1()
 	
 	if Input.is_action_just_pressed("技能2") and skill_2_is_usable:
 		skill_2()
-		pass
+	
+	if Input.is_action_just_pressed("技能3") and skill_3_is_usable:  
+		skill_3_fall()
 		
+	# 循环判断（条件为 是否到达 且 在使用技能3）是否到达位置，到达后速度归零
+	if abs(mouse_position_x - player.position.x) <= 1 and skill_3_is_using:
+			velocity = Vector2.ZERO
+	# 松开左键 确定技能3使用完毕，开始返回初始位置
+	if Input.is_action_just_released("技能3"):
+		skill_3_back()
+	# 循环判断（条件为 是否到达 且 在返回状态）是否返回到达
+	if player.position.y-skill_3_last_fall_position_y <=0 and is_go_back:
+		print("返回到达且技能3进入cd")
+		velocity = Vector2.ZERO 
+		is_go_back = false
+		var skill_3_timer = Timer.new()                 #添加一个计时器作为cd，结束后设置技能位可用
+		player.add_child(skill_3_timer)
+		skill_3_timer.one_shot = true
+		skill_3_timer.wait_time = skill_3_time_cd
+		skill_3_timer.timeout.connect(skill_3_timeout)
+		skill_3_timer.start()
 	move_and_slide()
+
+func skill_3_fall():
+	print("使用技能3")
+		# 确定使用技能3，并且存储使用了技能3时的位置
+	skill_3_is_using = true  
+	skill_3_is_usable = false                              
+	skill_3_last_fall_position_y = player.position.y
+		# 获取目标点x轴坐标
+	skill_3_mouse_position = get_global_mouse_position()
+	mouse_position_x = skill_3_mouse_position.x
+		# 赋予速度，并实现
+	var direction = skill_3_mouse_position - player.position
+	var move_vector = direction.normalized() * Vector2(skill_3_x_fall_speed,skill_3_y_fall_speed)
+	velocity = move_vector
+func skill_3_back():
+	print("技能3返回中")
+	skill_3_is_using = false
+	is_go_back = true
+	velocity.y = skill_3_y_back_speed
+	velocity.x = 0
+func skill_3_timeout():
+	print("技能3可以使用")
+	skill_3_is_usable = true
 
 func skill_2():
 	print("使用了技能2")
@@ -103,6 +153,14 @@ func skill_1():
 func skill_1_timeout():
 	print("技能1可以使用")
 	skill_1_is_usable = true
+	
+func move():
+	var movement:=Input.get_axis("向左","向右")
+	velocity.x = move_toward(velocity.x, movement * XSPEED, 100)
+	velocity.y = YSPEED
+	if not is_zero_approx(movement):
+			# 方向小于0（即-1），翻转
+			direction = Direction.RIGHT if movement < 0 else Direction.LEFT
 	
 func startCameraShake(intensity:float):
 	# 屏幕震动噪声乘以强度，改变最后的参数intensity即可改变震动大小
