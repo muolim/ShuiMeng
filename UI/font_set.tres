@@ -1,8 +1,0 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://baivk1y3fnh78"]
-
-[ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="1_dl72l"]
-
-[resource]
-font = ExtResource("1_dl72l")
-font_size = 32
-font_color = Color(0, 0, 0, 1)

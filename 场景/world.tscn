@@ -67,7 +67,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_pefpl")
 
-[sub_resource type="LabelSettings" id="LabelSettings_qtffx"]
+[sub_resource type="LabelSettings" id="LabelSettings_i1w6y"]
 font = ExtResource("9_0cbgd")
 
 [node name="World" type="Node2D"]
@@ -129,7 +129,7 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "高度："
-label_settings = SubResource("LabelSettings_qtffx")
+label_settings = SubResource("LabelSettings_i1w6y")
 script = ExtResource("10_o3s1s")
 
 [connection signal="get_crystal" from="Player" to="CanvasLayer/Crystal" method="_on_player_get_crystal"]

@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv2qthjrqc56n"]
+[gd_scene load_steps=5 format=3 uid="uid://cv2qthjrqc56n"]
 
 [ext_resource type="Script" path="res://UI/crystal.gd" id="1_ca0rb"]
 [ext_resource type="Texture2D" uid="uid://dv7fyaic4i6nk" path="res://场景/梦核/shuijing.png" id="1_viigy"]
-[ext_resource type="LabelSettings" uid="uid://baivk1y3fnh78" path="res://UI/font_set.tres" id="2_uxfpm"]
+[ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="2_s1w32"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t6m8v"]
+font = ExtResource("2_s1w32")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [node name="Crystal" type="HBoxContainer"]
 offset_right = 40.0
@@ -12,7 +17,7 @@ script = ExtResource("1_ca0rb")
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "0"
-label_settings = ExtResource("2_uxfpm")
+label_settings = SubResource("LabelSettings_t6m8v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
