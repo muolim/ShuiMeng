@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv7fyaic4i6nk"
-path="res://.godot/imported/shuijing.png-778c3e0fcf7d9633d249d0a991f518bb.ctex"
+uid="uid://w6dem2krj2ur"
+path="res://.godot/imported/shield.png-11cc59db325760a8c2b2222b4e7dedab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://场景/梦核/shuijing.png"
-dest_files=["res://.godot/imported/shuijing.png-778c3e0fcf7d9633d249d0a991f518bb.ctex"]
+source_file="res://素材/美术/shield.png"
+dest_files=["res://.godot/imported/shield.png-11cc59db325760a8c2b2222b4e7dedab.ctex"]
 
 [params]
 

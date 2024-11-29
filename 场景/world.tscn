@@ -91,12 +91,13 @@ tile_map_data = PackedByteArray("AAD9//7/AAAAAAIAAAD9////AAAAAAIAAAD9/wAAAAAAAAI
 tile_set = SubResource("TileSet_2vspr")
 script = ExtResource("2_e1r42")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera2D") instance=ExtResource("2_667dx")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera2D", "world", "crystal") instance=ExtResource("2_667dx")]
 position = Vector2(180, 90)
-camera2D = NodePath("Camera2D")
+camera2D = NodePath("../Camera2D")
+world = NodePath("..")
+crystal = NodePath("../CanvasLayer/Crystal")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-180, -90)
+[node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 limit_left = 0
 limit_right = 384
@@ -112,25 +113,21 @@ script = ExtResource("6_tffci")
 [node name="Heart" parent="CanvasLayer" instance=ExtResource("5_o465f")]
 offset_right = 216.0
 
-[node name="Crystal" parent="CanvasLayer" instance=ExtResource("8_2q0k8")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -45.0
-offset_right = 0.0
-grow_horizontal = 0
-
 [node name="Height" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
+offset_left = -24.0
+offset_right = 24.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "高度："
 label_settings = SubResource("LabelSettings_i1w6y")
 script = ExtResource("10_o3s1s")
 
-[connection signal="get_crystal" from="Player" to="CanvasLayer/Crystal" method="_on_player_get_crystal"]
+[node name="Crystal" parent="CanvasLayer" instance=ExtResource("8_2q0k8")]
+offset_left = -28.0
+offset_right = 28.0
+
 [connection signal="hurt" from="Player" to="CanvasLayer/Heart" method="_on_player_hurt"]
+[connection signal="update_crystal" from="Player" to="CanvasLayer/Crystal" method="_on_player_update_crystal"]

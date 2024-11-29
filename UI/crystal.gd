@@ -1,16 +1,13 @@
+# 类名
+class_name Crystal
+
 extends HBoxContainer
 
 # 初始化水晶数0
-@export var current_crystal:int=0
+@export var current_crystal:int
 
 @onready var label: Label = $Label
 
-func update_crystal(value):
-	# 梦核水晶加1并更新显示
-	current_crystal += 1
+func _on_player_update_crystal() -> void:
+	# 更新显示当前水晶数的UI
 	label.text=str(current_crystal)
-
-# 收到玩家得到水晶的信号后，更新水晶数
-func _on_player_get_crystal() -> void:
-	update_crystal(current_crystal)
-	pass # Replace with function body.

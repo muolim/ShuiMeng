@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt40vx3r6t6fl"
-path="res://.godot/imported/红幽灵-Sheet.png-16d37052a6e579cc38dae7cfbedb7c5a.ctex"
+uid="uid://dv7fyaic4i6nk"
+path="res://.godot/imported/crystal.png-99c1409200e25c906ff93257fa933ece.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/美术/红幽灵-Sheet.png"
-dest_files=["res://.godot/imported/红幽灵-Sheet.png-16d37052a6e579cc38dae7cfbedb7c5a.ctex"]
+source_file="res://素材/美术/crystal.png"
+dest_files=["res://.godot/imported/crystal.png-99c1409200e25c906ff93257fa933ece.ctex"]
 
 [params]
 

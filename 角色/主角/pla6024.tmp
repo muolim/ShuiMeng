@@ -19,6 +19,9 @@ size = Vector2(9, 23)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player") groups=["player"]]
 script = ExtResource("1_5w5f1")
+direction = null
+XSPEED = null
+YSPEED = null
 player = NodePath(".")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

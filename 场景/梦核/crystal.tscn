@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://u40rjehljk28"]
 
 [ext_resource type="Script" path="res://场景/梦核/crystal.gd" id="1_11ab2"]
-[ext_resource type="Texture2D" uid="uid://dv7fyaic4i6nk" path="res://场景/梦核/shuijing.png" id="1_pa8y4"]
+[ext_resource type="Texture2D" uid="uid://dv7fyaic4i6nk" path="res://素材/美术/crystal.png" id="1_pa8y4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6wjgk"]
 radius = 3.0

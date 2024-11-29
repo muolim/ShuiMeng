@@ -1,8 +1,8 @@
 extends Sprite2D
 
 @export var shield:Node2D
-var skill_1_time_cd:float = 10
-var skill_1_effect:float = 2
+var skill_1_crystal_required:int = 20 # 技能需求梦核水晶数量
+var skill_1_effect:float = 2 # 技能生效时间
 
 func _physics_process(delta: float) -> void:
 	skill_1_effect -= delta
