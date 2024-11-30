@@ -37,6 +37,7 @@ var target_position = Vector2(366, -1985)
 @export var crystal:Crystal
 
 # 技能1 依次为绑定预制体盾，是否可用技能，cd时间
+@export var skill_1_ui:TextureRect # 绑定上技能1的UI节点，显示技能状态
 var skill_scene_1 = preload("res://角色/主角/技能/skill_1.tscn")
 var skill_1_is_usable:bool = true
 var skill_1_time_cd:float = 10.0 
@@ -44,12 +45,14 @@ var skill_1_crystal_required:int = 3 # 技能需求梦核水晶数量（策划�
 var skill_1_wudi:bool=false # 护盾生效期间碰到障碍物便进入无敌状态
 
 # 技能3 依次为绑定预制体雷，是否可用技能，cd时间
+@export var skill_2_ui:TextureRect # 绑定上技能2的UI节点，显示技能状态
 var skill_scene_3 = preload("res://角色/主角/技能/skill_3.tscn")
 var skill_3_is_usable:bool = true
 var skill_3_time_cd:float = 5.0
 var skill_3_crystal_required:int = 3 # 技能需求梦核水晶数量（策划案中为10）
 
 # 技能5 
+@export var skill_3_ui:TextureRect # 绑定上技能3的UI节点，显示技能状态
 var skill_5_is_using = false                                # 技能5是否在使用
 var skill_5_last_fall_position_y                            # 存储使用技能5后要返回y轴的位置
 var skill_5_mouse_position:Vector2                          # 鼠标位置
@@ -75,7 +78,7 @@ func _physics_process(delta: float) -> void:
 	
 	# 如果按下技能1，并且技能1可用（冷却完毕），并且当前梦核水晶数大于等于技能1消耗的水晶数
 	if Input.is_action_just_pressed("技能1") and skill_1_is_usable and crystal.current_crystal >= skill_1_crystal_required:
-		skill_1()
+		skill_1(delta)
 	
 	if Input.is_action_just_pressed("技能3") and skill_3_is_usable and crystal.current_crystal >= skill_3_crystal_required:
 		skill_3()
@@ -83,6 +86,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("技能5") and skill_5_is_usable:  
 		skill_5_fall()
 		
+	
 	# 循环判断（条件为 是否到达 且 在使用技能5）是否到达位置，到达后速度归零
 	if abs(mouse_position_x - player.position.x) <= 1 and skill_5_is_using:
 			skill_5_is_using=false
@@ -158,7 +162,7 @@ func skill_3_timeout():
 	skill_3_is_usable = true
 	
 
-func skill_1():
+func skill_1(delta):
 	print("使用了技能1")
 	# 在这里修改Crystal中的current_crystal，减去了释放1技能消耗的水晶量
 	crystal.current_crystal -= skill_1_crystal_required
@@ -277,6 +281,25 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		# 释放水晶节点
 		tween.tween_callback(area.queue_free)
 		crystal.current_crystal += 1
+		
+		# 发出玩家已经得到梦核水晶的信号，接收者是ui的crystal脚本
+		emit_signal("update_crystal")
+		
+		
+	if area.is_in_group("crystals"):
+		print("梦核水晶")
+		
+		# 创建一个Tween节点来控制水晶飘向UI的动画
+		var tween = get_tree().create_tween()
+		# 获取收集品的位置
+		var start_position = area.global_position
+		# 将收集品移动到右上角UI位置
+		tween.tween_property(area, "global_position", target_position, 0.5)
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_LINEAR)
+		# 释放水晶节点
+		tween.tween_callback(area.queue_free)
+		crystal.current_crystal += 4
 		
 		# 发出玩家已经得到梦核水晶的信号，接收者是ui的crystal脚本
 		emit_signal("update_crystal")

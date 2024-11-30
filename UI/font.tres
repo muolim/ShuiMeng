@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c66s4r6fgns3x"]
+
+[ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="1_22k3c"]
+
+[resource]
+font = ExtResource("1_22k3c")
+font_size = 64
+font_color = Color(0, 0, 0, 1)

@@ -23,6 +23,7 @@ var crystal_lifetime_distance = 800  # 梦核超出此距离后自动删除 (像
 func _ready():
 	# 加载多个梦核场景
 	crystal_scenes.append(preload("res://场景/梦核/crystal.tscn"))
+	crystal_scenes.append(preload("res://场景/梦核/crystals.tscn"))
 	# 你可以根据需要添加更多梦核预制体
 
 func _physics_process(delta: float) -> void:

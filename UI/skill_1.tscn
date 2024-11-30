@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf18sr6r7ttlc"]
+[gd_scene load_steps=4 format=3 uid="uid://bf18sr6r7ttlc"]
 
 [ext_resource type="Texture2D" uid="uid://dsbpmnpyo1es6" path="res://素材/正式美术素材/技能1UI.png" id="1_4h4te"]
+[ext_resource type="LabelSettings" uid="uid://c66s4r6fgns3x" path="res://UI/font.tres" id="2_vwdkb"]
+[ext_resource type="Texture2D" uid="uid://dqpt8rml1j86n" path="res://素材/正式美术素材/单个梦核.png" id="3_ao3kb"]
 
 [node name="Skill_1" type="TextureRect"]
-offset_right = 2160.0
-offset_bottom = 1620.0
+offset_right = 738.0
+offset_bottom = 962.0
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_4h4te")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 900.0
+offset_right = 308.0
+offset_bottom = 1003.0
+scale = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "20"
+label_settings = ExtResource("2_vwdkb")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_ao3kb")

@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="2_s1w32"]
 [ext_resource type="Texture2D" uid="uid://dqpt8rml1j86n" path="res://素材/正式美术素材/单个梦核.png" id="3_6sood"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_t6m8v"]
+[sub_resource type="LabelSettings" id="LabelSettings_rjyaq"]
 font = ExtResource("2_s1w32")
 font_size = 32
 font_color = Color(0, 0, 0, 1)
@@ -21,7 +21,7 @@ script = ExtResource("1_ca0rb")
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "0"
-label_settings = SubResource("LabelSettings_t6m8v")
+label_settings = SubResource("LabelSettings_rjyaq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

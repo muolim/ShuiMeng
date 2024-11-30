@@ -25,14 +25,14 @@ func _on_item_body_entered(body):
 	# 检查是否碰到了 Barrier
 	if body.is_in_group("barrier"):
 		# 发出信号通知碰撞
-		var boom =  boom_scene.instantiate()  # 实例化手榴弹
-		body.position = boom.position
-		body.add_child(boom)
+		#var boom =  boom_scene.instantiate()  # 实例化手榴弹
+		#body.position = boom.position
+		#body.add_child(boom)
 		print("爆炸！！！！")
 		# 销毁道具
 		queue_free()
-		## 销毁 Barrier
-		#body.queue_free()
+		# 销毁 Barrier
+		body.queue_free()
 
 
 func _on_body_entered(body: Node2D) -> void:

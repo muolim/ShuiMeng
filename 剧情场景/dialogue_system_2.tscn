@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cg4v7pvnbyoy0" path="res://素材/正式美术素材/剧情2.png" id="2_4d5so"]
 [ext_resource type="Texture2D" uid="uid://cuysvfpbavlgb" path="res://素材/正式美术素材/剧情1.png" id="3_wp2a2"]
 [ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="4_1ik7o"]
-[ext_resource type="Theme" uid="uid://dw1x77cj5sf6j" path="res://UI/main_theme.tres" id="5_gd5xp"]
+[ext_resource type="Theme" path="res://UI/main_theme.tres" id="5_gd5xp"]
 
 [sub_resource type="Theme" id="Theme_4u37l"]
 default_font = ExtResource("4_1ik7o")
