@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dw1x77cj5sf6j"]
+
+[ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="1_i77df"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g1y0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7cipq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8j1o5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_brban"]
+
+[resource]
+default_font = ExtResource("1_i77df")
+default_font_size = 16
+Button/colors/font_color = Color(0.376379, 0.731144, 0.869093, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0.484012, 0.419075, 0.666708, 1)
+Button/colors/font_outline_color = Color(0.589365, 0.594386, 0.745057, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_i77df")
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxEmpty_g1y0q")
+Button/styles/hover = SubResource("StyleBoxEmpty_7cipq")
+Button/styles/normal = SubResource("StyleBoxEmpty_8j1o5")
+Button/styles/pressed = SubResource("StyleBoxEmpty_brban")
+VBoxContainer/constants/separation = 21
