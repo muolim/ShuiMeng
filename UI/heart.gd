@@ -2,17 +2,24 @@ extends HBoxContainer
 
 var heart=preload("res://素材/正式美术素材/枕头.png")
 var empty_heart=preload("res://素材/正式美术素材/空心枕头.png")
-# 两种血量显示方式
-enum TYPES {type1,type2}
-@export var type := TYPES.type1
+# 三张地图，三个不同的最大血量
+enum WORLDS {world1,world2,world3}
+@export var world := WORLDS.world1
 
 # 最大血量
-var max_heart:int=3
+var max_heart:int
 # 当前血量
 var current_heart:int
 
 func _ready():
 	# 初始化血量为最大血量
+	match world:
+		WORLDS.world1:
+			max_heart=1
+		WORLDS.world2:
+			max_heart=2
+		WORLDS.world3:
+			max_heart=3
 	current_heart = max_heart
 	for i in self.get_child_count():
 		if max_heart>i:
@@ -23,19 +30,15 @@ func _ready():
 
 # 更新血量
 func update_heart(value):
-	match type:
-		TYPES.type1:
-			update_type1(value)
-		TYPES.type2:
-			update_type2(value)
+	update_type2(value)
 	
-# 第一种血量显示方式，只显示满心
-func update_type1(value):
-	for i in self.get_child_count():
-		if i < value:
-			get_child(i).show()
-		else:
-			get_child(i).hide()
+## 第一种血量显示方式，只显示满心
+#func update_type1(value):
+	#for i in self.get_child_count():
+		#if i < value:
+			#get_child(i).show()
+		#else:
+			#get_child(i).hide()
 	
 # 第二种血量显示方式，失去血量则用空心代替
 func update_type2(value):

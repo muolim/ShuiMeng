@@ -6,10 +6,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6wjgk"]
 radius = 14.0357
 
-[node name="Crystal" type="Area2D" groups=["crystal"]]
+[node name="Crystal" type="Area2D" groups=["crystals"]]
 script = ExtResource("1_xla1l")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["crystals"]]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(13, 21)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_ni1hm")

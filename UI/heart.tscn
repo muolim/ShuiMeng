@@ -8,7 +8,6 @@ offset_right = 128.0
 offset_bottom = 40.0
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_b15om")
-type = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
