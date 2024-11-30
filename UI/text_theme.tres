@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://pngxfy20lixx"]
+
+[ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="1_1xi3f"]
+
+[resource]
+default_font = ExtResource("1_1xi3f")
