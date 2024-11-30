@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://pa0bdvbje5g3"]
+
+[ext_resource type="Script" path="res://剧情场景/dialogue_system_2.gd" id="1_v5mcw"]
+[ext_resource type="Texture2D" uid="uid://cg4v7pvnbyoy0" path="res://素材/正式美术素材/剧情2.png" id="2_4d5so"]
+[ext_resource type="Texture2D" uid="uid://cuysvfpbavlgb" path="res://素材/正式美术素材/剧情1.png" id="3_wp2a2"]
+[ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="4_1ik7o"]
+[ext_resource type="Theme" uid="uid://dw1x77cj5sf6j" path="res://UI/main_theme.tres" id="5_gd5xp"]
+
+[sub_resource type="Theme" id="Theme_4u37l"]
+default_font = ExtResource("4_1ik7o")
+Window/font_sizes/title_font_size = 20
+
+[node name="DialogueSystem2" type="Control" node_paths=PackedStringArray("title", "content", "interface", "p1", "p2")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v5mcw")
+title = NodePath("VBoxContainer/DialogueInterface/MarginContainer/VBoxContainer/title")
+content = NodePath("VBoxContainer/DialogueInterface/MarginContainer/VBoxContainer/content")
+interface = NodePath("VBoxContainer/DialogueInterface")
+p1 = NodePath("VBoxContainer/Sprite2D2")
+p2 = NodePath("VBoxContainer/Sprite2D")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(196, 72)
+scale = Vector2(0.28, 0.26)
+texture = ExtResource("2_4d5so")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(194, 73)
+scale = Vector2(0.280481, 0.268337)
+texture = ExtResource("3_wp2a2")
+
+[node name="DialogueInterface" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/DialogueInterface"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/DialogueInterface/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="title" type="RichTextLabel" parent="VBoxContainer/DialogueInterface/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_4u37l")
+bbcode_enabled = true
+text = "标题
+"
+fit_content = true
+
+[node name="content" type="RichTextLabel" parent="VBoxContainer/DialogueInterface/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_gd5xp")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "内容"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/DialogueInterface/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="continue" type="Button" parent="VBoxContainer/DialogueInterface/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_1ik7o")
+theme_override_font_sizes/font_size = 16
+text = "继续"

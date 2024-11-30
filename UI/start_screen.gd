@@ -2,6 +2,7 @@ extends Control
 
 @export var click_sound:AudioStreamPlayer
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -16,7 +17,7 @@ func hook_button_sound():
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://场景/world.tscn")
+	get_tree().change_scene_to_file("res://剧情场景/dialogue_system_1.tscn")
 	pass # Replace with function body.
 
 
