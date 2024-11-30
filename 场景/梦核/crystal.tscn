@@ -1,16 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://u40rjehljk28"]
 
 [ext_resource type="Script" path="res://场景/梦核/crystal.gd" id="1_11ab2"]
-[ext_resource type="Texture2D" uid="uid://dv7fyaic4i6nk" path="res://素材/美术/crystal.png" id="1_pa8y4"]
+[ext_resource type="Texture2D" uid="uid://dqpt8rml1j86n" path="res://素材/正式美术素材/单个梦核.png" id="2_x1p06"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6wjgk"]
-radius = 3.0
+radius = 5.5
 
 [node name="Crystal" type="Area2D" groups=["crystal"]]
 script = ExtResource("1_11ab2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_pa8y4")
+position = Vector2(-25, 33)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_x1p06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

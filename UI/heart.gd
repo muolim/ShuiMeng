@@ -1,7 +1,7 @@
-extends HBoxContainer
+extends Control
 
-var heart=preload("res://素材/美术/heart.png")
-var empty_heart=preload("res://素材/美术/empty_heart.png")
+var heart=preload("res://素材/正式美术素材/枕头1.png")
+var empty_heart=preload("res://素材/正式美术素材/空心枕头1.png")
 # 两种血量显示方式
 enum TYPES {type1,type2}
 @export var type := TYPES.type1

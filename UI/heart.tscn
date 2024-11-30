@@ -1,36 +1,53 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj4nmpvigoa32"]
 
 [ext_resource type="Script" path="res://UI/heart.gd" id="1_b15om"]
-[ext_resource type="Texture2D" uid="uid://uviy2a7n3j81" path="res://素材/美术/heart.png" id="2_64wtw"]
+[ext_resource type="Texture2D" uid="uid://datj5dwnp1md6" path="res://素材/正式美术素材/枕头1.png" id="2_j8m4l"]
 
-[node name="Heart" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
+[node name="Heart" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -33.0
+offset_right = 216.0
+offset_bottom = 7.0
+scale = Vector2(2, 2)
 script = ExtResource("1_b15om")
 type = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_64wtw")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_j8m4l")
 expand_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_64wtw")
+offset_left = 14.0
+offset_right = 54.0
+offset_bottom = 40.0
+texture = ExtResource("2_j8m4l")
 expand_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_64wtw")
+offset_left = 28.0
+offset_right = 68.0
+offset_bottom = 40.0
+texture = ExtResource("2_j8m4l")
 expand_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_64wtw")
+offset_left = 42.0
+offset_right = 82.0
+offset_bottom = 40.0
+texture = ExtResource("2_j8m4l")
 expand_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_64wtw")
+offset_left = 56.0
+offset_right = 96.0
+offset_bottom = 40.0
+texture = ExtResource("2_j8m4l")
 expand_mode = 2

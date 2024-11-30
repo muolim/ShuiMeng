@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf18sr6r7ttlc"]
+
+[ext_resource type="Texture2D" uid="uid://dsbpmnpyo1es6" path="res://素材/正式美术素材/技能1UI.png" id="1_4h4te"]
+
+[node name="Skill_1" type="TextureRect"]
+offset_right = 2160.0
+offset_bottom = 1620.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4h4te")

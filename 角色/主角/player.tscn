@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpfa024ajmuel"]
 
 [ext_resource type="Script" path="res://角色/主角/player.gd" id="1_5w5f1"]
-[ext_resource type="Texture2D" uid="uid://cmudtvhoqcrgk" path="res://素材/美术/小V下落.png" id="2_mr2es"]
+[ext_resource type="Texture2D" uid="uid://cmudtvhoqcrgk" path="res://素材/草稿美术素材/小V下落.png" id="2_mr2es"]
 [ext_resource type="Shader" path="res://角色/主角/shader/blink.gdshader" id="2_qlfbg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qa7sy"]

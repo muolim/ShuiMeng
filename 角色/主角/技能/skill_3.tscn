@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0py4pxhhqu3u"]
 
 [ext_resource type="Script" path="res://角色/主角/技能/skill_3.gd" id="1_nafoj"]
-[ext_resource type="Texture2D" uid="uid://b4xm5pn2qrkyo" path="res://icon.svg" id="2_lf47g"]
+[ext_resource type="Texture2D" uid="uid://c4bvyey2rcau4" path="res://素材/正式美术素材/技能3手榴弹.png" id="2_2mgdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2p3e"]
 size = Vector2(12, 12)
@@ -10,8 +10,9 @@ size = Vector2(12, 12)
 script = ExtResource("1_nafoj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_lf47g")
+position = Vector2(-1, -5)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_2mgdf")
 
 [node name="Area2D" type="Area2D" parent="."]
 

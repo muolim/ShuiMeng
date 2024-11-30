@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnmu6a5q1ecjv"]
 
-[ext_resource type="Texture2D" uid="uid://w6dem2krj2ur" path="res://素材/美术/shield.png" id="1_3atwm"]
+[ext_resource type="Texture2D" uid="uid://w6dem2krj2ur" path="res://素材/草稿美术素材/shield.png" id="1_3atwm"]
 [ext_resource type="Script" path="res://角色/主角/技能/skill_1.gd" id="2_84nah"]
 
 [node name="Skill1" type="Node2D"]
