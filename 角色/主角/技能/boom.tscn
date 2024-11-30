@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvsor6rng8ir7"]
+
+[ext_resource type="Texture2D" uid="uid://dyertannh0fps" path="res://素材/正式美术素材/爆炸.png" id="1_b3x1w"]
+
+[node name="Boom" type="Sprite2D"]
+position = Vector2(-4.76837e-07, -81)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_b3x1w")

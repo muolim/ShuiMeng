@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnmu6a5q1ecjv"]
 
-[ext_resource type="Texture2D" uid="uid://w6dem2krj2ur" path="res://素材/草稿美术素材/shield.png" id="1_3atwm"]
+[ext_resource type="Texture2D" uid="uid://cl4xoc3gep2y6" path="res://素材/正式美术素材/玩家开启技能.png" id="1_i5g2i"]
 [ext_resource type="Script" path="res://角色/主角/技能/skill_1.gd" id="2_84nah"]
 
 [node name="Skill1" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="." node_paths=PackedStringArray("shield")]
-texture = ExtResource("1_3atwm")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_i5g2i")
 script = ExtResource("2_84nah")
 shield = NodePath("..")

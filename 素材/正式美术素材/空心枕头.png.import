@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://datj5dwnp1md6"
-path="res://.godot/imported/枕头1.png-33c89ad51e53c206a8e2ae3dc34d1a87.ctex"
+uid="uid://dn1n2mh0dfe6d"
+path="res://.godot/imported/空心枕头.png-be910ac30905c3843f48f327b2608217.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://素材/正式美术素材/枕头1.png"
-dest_files=["res://.godot/imported/枕头1.png-33c89ad51e53c206a8e2ae3dc34d1a87.ctex"]
+source_file="res://素材/正式美术素材/空心枕头.png"
+dest_files=["res://.godot/imported/空心枕头.png-be910ac30905c3843f48f327b2608217.ctex"]
 
 [params]
 

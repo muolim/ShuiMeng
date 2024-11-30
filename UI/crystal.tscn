@@ -9,32 +9,21 @@ font = ExtResource("2_s1w32")
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
-[node name="Crystal" type="Control"]
-layout_mode = 3
+[node name="Crystal" type="HBoxContainer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -30.0
-offset_right = 30.0
+offset_left = -60.0
 offset_bottom = 32.0
 grow_horizontal = 0
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ca0rb")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_right = 16.0
-offset_bottom = 32.0
-scale = Vector2(1.2, 1.2)
 text = "0"
 label_settings = SubResource("LabelSettings_t6m8v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-offset_left = -96.0
-offset_top = -10.0
-offset_right = -64.0
-offset_bottom = 22.0
-scale = Vector2(6, 6)
 texture = ExtResource("3_6sood")
 expand_mode = 2

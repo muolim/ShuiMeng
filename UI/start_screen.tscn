@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://hlnk5d7ysx05"]
+[gd_scene load_steps=5 format=3 uid="uid://tn0byx0du1gs"]
 
 [ext_resource type="Script" path="res://UI/start_screen.gd" id="1_ojd2c"]
 [ext_resource type="Texture2D" uid="uid://dype4bq14slxf" path="res://素材/草稿美术素材/title.png" id="1_yw0v7"]
-[ext_resource type="Theme" uid="uid://dw1x77cj5sf6j" path="res://UI/main_theme.tres" id="2_yil8d"]
-[ext_resource type="AudioStream" uid="uid://nesi1okgrhhm" path="res://素材/音频/击破-触发.wav" id="4_d13ou"]
+[ext_resource type="Theme" path="res://UI/main_theme.tres" id="2_yil8d"]
+[ext_resource type="AudioStream" uid="uid://b087aq8iou4hp" path="res://素材/音频/剧情对话-点击.wav" id="4_oxayb"]
 
 [node name="TitleScreen" type="Control" node_paths=PackedStringArray("click_sound")]
 layout_mode = 3
@@ -44,7 +44,7 @@ layout_mode = 2
 text = "退出"
 
 [node name="clicksound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_d13ou")
+stream = ExtResource("4_oxayb")
 
 [connection signal="button_down" from="VBoxContainer/VBoxContainer/StratButton" to="." method="hook_button_sound"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/StratButton" to="." method="_on_button_pressed"]

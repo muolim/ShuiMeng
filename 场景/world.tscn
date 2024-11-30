@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://mgjdrvvswd8"]
+[gd_scene load_steps=14 format=4 uid="uid://mgjdrvvswd8"]
 
 [ext_resource type="Texture2D" uid="uid://dkvjk1sfucsqx" path="res://素材/草稿美术素材/1x1方块.png" id="1_1sjgt"]
-[ext_resource type="Texture2D" uid="uid://d3owqn7itmw0e" path="res://素材/草稿美术素材/background.png" id="1_qnmyr"]
+[ext_resource type="Texture2D" uid="uid://cvyif7sj8md3c" path="res://素材/正式美术素材/1阶段背景.png" id="1_ithvh"]
 [ext_resource type="PackedScene" uid="uid://cpfa024ajmuel" path="res://角色/主角/player.tscn" id="2_667dx"]
 [ext_resource type="Script" path="res://场景/地图/tile_map_layer.gd" id="2_e1r42"]
 [ext_resource type="PackedScene" uid="uid://bj4nmpvigoa32" path="res://UI/heart.tscn" id="5_o465f"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cv2qthjrqc56n" path="res://UI/crystal.tscn" id="8_2q0k8"]
 [ext_resource type="FontFile" uid="uid://bcklce3psavkr" path="res://素材/字体/凤凰点阵体/VonwaonBitmap-16px.ttf" id="9_0cbgd"]
 [ext_resource type="Script" path="res://UI/height.gd" id="10_o3s1s"]
-[ext_resource type="PackedScene" uid="uid://bf18sr6r7ttlc" path="res://UI/skill_1.tscn" id="11_4gydw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pefpl"]
 texture = ExtResource("1_1sjgt")
@@ -84,7 +83,8 @@ motion_mirroring = Vector2(0, 216)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(0, -2000)
-texture = ExtResource("1_qnmyr")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ithvh")
 centered = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -127,15 +127,7 @@ label_settings = SubResource("LabelSettings_i1w6y")
 script = ExtResource("10_o3s1s")
 
 [node name="Crystal" parent="CanvasLayer" instance=ExtResource("8_2q0k8")]
-offset_left = -28.0
-offset_right = 28.0
-
-[node name="Skill_1" parent="CanvasLayer" instance=ExtResource("11_4gydw")]
-visible = false
-offset_left = 308.0
-offset_top = 19.0
-offset_right = 2468.0
-offset_bottom = 1639.0
+offset_left = -56.0
 
 [connection signal="hurt" from="Player" to="CanvasLayer/Heart" method="_on_player_hurt"]
 [connection signal="update_crystal" from="Player" to="CanvasLayer/Crystal" method="_on_player_update_crystal"]

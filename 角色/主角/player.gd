@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 # 玩家方向
 enum Direction {
+	
 	LEFT = -1,
 	RIGHT = +1
 }
@@ -16,7 +17,7 @@ signal update_crystal
 		direction = v
 		if not is_node_ready():
 			await ready
-		sprite_2d.scale.x=direction
+		sprite_2d.scale.x = direction * 0.1
 		
 @export var XSPEED : float = 100.0
 @export var YSPEED : float = 0.0

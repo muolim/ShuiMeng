@@ -1,7 +1,7 @@
 # 类名
 class_name Crystal
 
-extends Control
+extends HBoxContainer
 
 # 初始化水晶数0
 @export var current_crystal:int
