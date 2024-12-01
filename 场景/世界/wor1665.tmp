@@ -90,10 +90,8 @@ tile_map_data = PackedByteArray("AAD9//7/AAAAAAIAAAD9////AAAAAAIAAAD9/wAAAAAAAAI
 tile_set = SubResource("TileSet_2vspr")
 script = ExtResource("3_esdux")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera2D", "player", "world") instance=ExtResource("4_0jbhi")]
-position = Vector2(180, 90)
+[node name="Player" parent="." node_paths=PackedStringArray("camera2D", "world") instance=ExtResource("4_0jbhi")]
 camera2D = NodePath("../Camera2D")
-player = NodePath(".")
 world = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -114,8 +112,8 @@ scale = Vector2(0.7, 0.7)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -24.0
-offset_right = 24.0
+offset_left = -63.0
+offset_right = -15.0
 offset_bottom = 23.0
 grow_horizontal = 2
 scale = Vector2(0.8, 0.8)
@@ -123,4 +121,4 @@ text = "高度："
 label_settings = SubResource("LabelSettings_i1w6y")
 script = ExtResource("9_iv44g")
 
-[connection signal="hurt" from="Player" to="CanvasLayer/Heart" method="_on_player_hurt"]
+[connection signal="hurt" from="Player" to="CanvasLayer/Heart" method="_on_player_2_hurt"]

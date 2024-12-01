@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0py4pxhhqu3u"]
 
-[ext_resource type="Script" path="res://角色/主角/技能/skill_3.gd" id="1_nafoj"]
+[ext_resource type="Script" path="res://角色/技能/skill_3.gd" id="1_nafoj"]
 [ext_resource type="Texture2D" uid="uid://c4bvyey2rcau4" path="res://素材/正式美术素材/技能3手榴弹.png" id="2_2mgdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2p3e"]

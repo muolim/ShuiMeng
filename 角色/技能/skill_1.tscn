@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnmu6a5q1ecjv"]
 
 [ext_resource type="Texture2D" uid="uid://cl4xoc3gep2y6" path="res://素材/正式美术素材/玩家开启技能.png" id="1_i5g2i"]
-[ext_resource type="Script" path="res://角色/主角/技能/skill_1.gd" id="2_84nah"]
+[ext_resource type="Script" path="res://角色/技能/skill_1.gd" id="2_84nah"]
 
 [node name="Skill1" type="Node2D"]
 

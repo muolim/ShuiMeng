@@ -1,6 +1,6 @@
 extends Node2D  # 假设容器是一个 Node2D 节点
 
-@onready var player: Player = $"../Player"
+@onready var player: CharacterBody2D = $"../Player"
 
 # 障碍物场景数组
 var obstacle_scenes : Array  # 存储不同的障碍物预制体

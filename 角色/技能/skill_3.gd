@@ -11,7 +11,7 @@ signal collided_with_barrier
 # 当前速度
 var velocity = initial_velocity
 # 加载爆炸场景
-var boom_scene = preload("res://角色/主角/技能/boom.tscn")
+#var boom_scene = preload("res://角色/主角/技能/boom.tscn")
 
 
 func _physics_process(delta: float) -> void:

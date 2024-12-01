@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://orw0eg7qu04w" path="res://素材/正式美术素材/3阶段背景.png" id="1_sq6ut"]
 [ext_resource type="Texture2D" uid="uid://dkvjk1sfucsqx" path="res://素材/草稿美术素材/1x1方块.png" id="2_pb74o"]
 [ext_resource type="Script" path="res://场景/地图/tile_map_layer.gd" id="3_mj5hf"]
-[ext_resource type="PackedScene" uid="uid://cpfa024ajmuel" path="res://角色/主角/player.tscn" id="4_75j12"]
+[ext_resource type="PackedScene" uid="uid://by0dgtx3unexs" path="res://角色/主角/主角3/player3.tscn" id="4_tprtk"]
 [ext_resource type="Script" path="res://场景/障碍物/barrie_container.gd" id="5_j0ya0"]
 [ext_resource type="Script" path="res://场景/梦核/crystal_container.gd" id="6_d7857"]
 [ext_resource type="PackedScene" uid="uid://bj4nmpvigoa32" path="res://UI/heart.tscn" id="7_8i5cd"]
@@ -73,7 +73,7 @@ sources/0 = SubResource("TileSetAtlasSource_pefpl")
 [sub_resource type="LabelSettings" id="LabelSettings_i1w6y"]
 font = ExtResource("8_cr018")
 
-[node name="World" type="Node2D"]
+[node name="World3" type="Node2D"]
 position = Vector2(0, -2000)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -95,9 +95,10 @@ tile_map_data = PackedByteArray("AAD9//7/AAAAAAIAAAD9////AAAAAAIAAAD9/wAAAAAAAAI
 tile_set = SubResource("TileSet_2vspr")
 script = ExtResource("3_mj5hf")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera2D", "world", "crystal", "skill_1_ui", "skill_2_ui", "skill_3_ui") instance=ExtResource("4_75j12")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera2D", "player", "world", "crystal", "skill_1_ui", "skill_2_ui", "skill_3_ui") instance=ExtResource("4_tprtk")]
 position = Vector2(180, 90)
 camera2D = NodePath("../Camera2D")
+player = NodePath(".")
 world = NodePath("..")
 crystal = NodePath("../CanvasLayer/Crystal")
 skill_1_ui = NodePath("../CanvasLayer/HBoxContainer/Skill_1")

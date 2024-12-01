@@ -1,6 +1,7 @@
 extends Node2D  # 假设容器是一个 Node2D 节点
 
-@onready var player: Player = $"../Player"
+@onready var player: CharacterBody2D = $"../Player"
+
 
 # 梦核场景数组
 var crystal_scenes : Array  # 存储不同的梦核预制体

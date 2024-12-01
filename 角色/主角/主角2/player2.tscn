@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpfa024ajmuel"]
+[gd_scene load_steps=7 format=3 uid="uid://dr8yt2sg7wf54"]
 
-[ext_resource type="Script" path="res://角色/主角/player.gd" id="1_5w5f1"]
-[ext_resource type="Shader" path="res://角色/主角/shader/blink.gdshader" id="2_qlfbg"]
-[ext_resource type="Texture2D" uid="uid://d17maqwf3qo56" path="res://素材/正式美术素材/玩家坠落.png" id="3_ibi1x"]
+[ext_resource type="Script" path="res://角色/主角/主角2/player2.gd" id="1_h6ves"]
+[ext_resource type="Shader" path="res://角色/shader/blink.gdshader" id="2_st7hi"]
+[ext_resource type="Texture2D" uid="uid://d17maqwf3qo56" path="res://素材/正式美术素材/玩家坠落.png" id="3_a5btx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qa7sy"]
-shader = ExtResource("2_qlfbg")
+shader = ExtResource("2_st7hi")
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_intensity = 0.0
 shader_parameter/invincibility_color = Color(1, 1, 1, 1)
@@ -17,14 +17,13 @@ size = Vector2(11.25, 23.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0tnf"]
 size = Vector2(9, 23)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player") groups=["player"]]
-script = ExtResource("1_5w5f1")
-player = NodePath(".")
+[node name="Player2" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_h6ves")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_qa7sy")
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_ibi1x")
+texture = ExtResource("3_a5btx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
