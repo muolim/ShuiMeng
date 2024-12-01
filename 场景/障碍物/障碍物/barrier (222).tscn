@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bj3kb1ddpmxks"]
 
 [ext_resource type="PackedScene" uid="uid://4l6wg5ucb1lx" path="res://场景/障碍物/barrier.tscn" id="1_kfpom"]
-[ext_resource type="Script" path="res://场景/障碍物/障碍物/barrier.gd" id="2_cl86x"]
+[ext_resource type="Script" path="res://场景/障碍物/障碍物/barrier_(22).gd" id="2_vgqtt"]
 [ext_resource type="Texture2D" uid="uid://rfcq608hglo8" path="res://素材/正式美术素材/1阶段障碍物.png" id="3_41spr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rns3l"]
@@ -13,22 +13,19 @@ radius = 13.0
 height = 108.0
 
 [node name="Barrier" instance=ExtResource("1_kfpom")]
-script = ExtResource("2_cl86x")
+script = ExtResource("2_vgqtt")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(56, 16)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_41spr")
 region_enabled = true
 region_rect = Rect2(353, 367, 558, 155)
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(55, 13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rns3l")
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-position = Vector2(55, 13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_syq8j")
 

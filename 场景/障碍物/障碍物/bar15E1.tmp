@@ -14,19 +14,21 @@ size = Vector2(18.9997, 100)
 script = ExtResource("2_mmoj2")
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(50, 10)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_0mgn5")
 region_enabled = true
 region_rect = Rect2(375, 216, 504, 106)
 
 [node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(50, 9.49998)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_4lhrw")
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(50, 9.49998)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_3xx2l")
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
-position = Vector2(100, 0)
 zoom = Vector2(0.1, 0.1)

@@ -123,7 +123,4 @@ text = "高度："
 label_settings = SubResource("LabelSettings_i1w6y")
 script = ExtResource("9_iv44g")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(336, -1)
-
 [connection signal="hurt" from="Player" to="CanvasLayer/Heart" method="_on_player_hurt"]

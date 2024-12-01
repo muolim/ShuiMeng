@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name 障碍物
 
 # 初速度 (米/秒)
 @export var initial_velocity = Vector2(0, -100)  # 向上的初速度，负值表示向上
@@ -26,6 +27,10 @@ var speed_increase_per_200m = 5
 
 # 高度降到0之后，不再增加速度
 var max_speed = 80
+
+# 墙壁位置
+var left_wall_x = 48  # 左侧墙壁的 x 坐标
+var right_wall_x = 336  # 右侧墙壁的 x 坐标
 
 func _ready() -> void:
 	# 初始化当前高度
