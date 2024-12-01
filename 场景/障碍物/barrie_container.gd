@@ -25,8 +25,13 @@ var obstacle_lifetime_distance = 800  # 障碍物超出此距离后自动删除 
 # 在 ready 函数中加载障碍物预制体
 func _ready():
 	# 加载多个障碍物场景
-	obstacle_scenes.append(preload("res://场景/障碍物/障碍物预制体/barrier_1.tscn"))
-	obstacle_scenes.append(preload("res://场景/障碍物/障碍物预制体/barrier_2.tscn"))
+	#obstacle_scenes.append(preload("res://场景/障碍物/障碍物预制体/barrier_1.tscn"))
+	obstacle_scenes.append(preload("res://场景/障碍物/障碍物/barrier.tscn"))
+	obstacle_scenes.append(preload("res://场景/障碍物/障碍物/barrier (2).tscn"))
+	obstacle_scenes.append(preload("res://场景/障碍物/障碍物/barrier (22).tscn"))
+	obstacle_scenes.append(preload("res://场景/障碍物/障碍物/barrier (222).tscn"))
+	obstacle_scenes.append(preload("res://场景/障碍物/障碍物/barrier (222222).tscn"))
+	obstacle_scenes.append(preload("res://场景/障碍物/障碍物/barrier (2222222).tscn"))
 
 	# 你可以根据需要添加更多障碍物预制体
 
@@ -58,7 +63,7 @@ func generate_obstacle():
 	var obstacle_width = 0
 	var sprite = obstacle_instance.get_node("Sprite2D")  # 如果使用了 Sprite
 	if sprite:
-		obstacle_width = sprite.texture.get_width()
+		obstacle_width = sprite.region_rect.size.x - sprite.region_rect.size.y
 	else:
 		var collision_shape = obstacle_instance.get_node("CollisionShape2D")  # 如果使用了 CollisionShape2D
 		if collision_shape:

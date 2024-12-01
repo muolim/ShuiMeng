@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://UI/start_screen.gd" id="1_ojd2c"]
 [ext_resource type="Texture2D" uid="uid://dype4bq14slxf" path="res://素材/草稿美术素材/title.png" id="1_yw0v7"]
-[ext_resource type="Theme" path="res://UI/main_theme.tres" id="2_yil8d"]
+[ext_resource type="Theme" uid="uid://dw1x77cj5sf6j" path="res://UI/main_theme.tres" id="2_yil8d"]
 [ext_resource type="AudioStream" uid="uid://b087aq8iou4hp" path="res://素材/音频/剧情对话-点击.wav" id="4_oxayb"]
 
 [node name="TitleScreen" type="Control" node_paths=PackedStringArray("click_sound")]

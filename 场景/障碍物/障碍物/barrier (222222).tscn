@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c35tem0neke00"]
+
+[ext_resource type="PackedScene" uid="uid://4l6wg5ucb1lx" path="res://场景/障碍物/barrier.tscn" id="1_uxo3y"]
+[ext_resource type="Script" path="res://场景/障碍物/障碍物/barrier.gd" id="2_2gwa8"]
+[ext_resource type="Texture2D" uid="uid://rfcq608hglo8" path="res://素材/正式美术素材/1阶段障碍物.png" id="3_t2hlb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vff3"]
+size = Vector2(15.9999, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvh53"]
+size = Vector2(15.9998, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agqo5"]
+size = Vector2(75, 17)
+
+[node name="Barrier" instance=ExtResource("1_uxo3y")]
+script = ExtResource("2_2gwa8")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(50, 18)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_t2hlb")
+region_enabled = true
+region_rect = Rect2(304, 599, 499, 178)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(39.5, 10.0001)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_0vff3")
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(39.5, 9.99998)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_fvh53")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hurtbox" index="1"]
+position = Vector2(62.5, 26.5)
+shape = SubResource("RectangleShape2D_agqo5")
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+zoom = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="4"]
+position = Vector2(62.5, 26.5)
+shape = SubResource("RectangleShape2D_agqo5")
